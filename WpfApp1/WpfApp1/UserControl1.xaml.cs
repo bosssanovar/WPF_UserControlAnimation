@@ -34,6 +34,11 @@ namespace WpfApp1
             var sb = FindResource("OpenAnimation") as Storyboard;
             if (sb is not null)
             {
+                sb.Completed += (sender, e) =>
+                {
+                    var _ = aaaButton.Focus();
+                };
+
                 sb.Begin();
             }
         }
@@ -54,6 +59,19 @@ namespace WpfApp1
             else
             {
                 Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
+        private void grid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
             }
         }
     }

@@ -47,8 +47,9 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid x:Name="grid" Background="#00000000">
-        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Width="300" Background="Gray" RenderTransformOrigin="0.5,0.5">
+    <Grid x:Name="grid" Background="#00000000" MouseDown="grid_MouseDown" PreviewKeyDown="grid_PreviewKeyDown">
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Width="300" Background="Gray"
+                    RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -57,7 +58,7 @@
                     <TranslateTransform X="-300"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Button Content="AAAA"/>
+            <Button x:Name="aaaButton" Content="AAAA"/>
             <Button Content="AAAA"/>
             <Button Content="AAAA"/>
         </StackPanel>
