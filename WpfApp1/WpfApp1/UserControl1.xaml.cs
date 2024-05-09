@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,6 +24,37 @@ namespace WpfApp1
         public UserControl1()
         {
             InitializeComponent();
+
+        }
+
+        public void Open()
+        {
+            Visibility = Visibility.Visible;
+
+            var sb = FindResource("OpenAnimation") as Storyboard;
+            if (sb is not null)
+            {
+                sb.Begin();
+            }
+        }
+
+        public void Close()
+        {
+            var sb = FindResource("CloseAnimation") as Storyboard;
+            if (sb is not null)
+            {
+                sb.Completed += (sender, e) =>
+                {
+                    Visibility = Visibility.Collapsed;
+                };
+
+                sb.Begin();
+
+            }
+            else
+            {
+                Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

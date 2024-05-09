@@ -12,6 +12,6 @@
         <Button Content="Show" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Padding="10,3" Margin="5" Click="Button_Click"/>
 
-        <local:UserControl1 x:Name="uc" Visibility="Collapsed"/>
+        <local:UserControl1 x:Name="uc" Margin="0,20,0,0"/>
     </Grid>
 </Window>

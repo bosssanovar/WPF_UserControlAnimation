@@ -23,7 +23,14 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            uc.Visibility = Visibility.Visible;
+            if (uc.Visibility is Visibility.Collapsed)
+            {
+                uc.Open();
+            }
+            else
+            {
+                uc.Close();
+            }
         }
     }
 }
